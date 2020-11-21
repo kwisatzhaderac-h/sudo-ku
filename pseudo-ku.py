@@ -4,8 +4,8 @@
 
 import numpy as np
 import time
-start_time = time.time()
 
+start_time = time.time() # begin tracking program run time
 
 ############################ puzzle to be solved ##############################
 

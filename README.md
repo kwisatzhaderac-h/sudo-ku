@@ -1,1 +1,1 @@
-# sudo-ku
+# Pseudo-ku
