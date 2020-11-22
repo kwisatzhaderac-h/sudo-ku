@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 #%%############################## Pseudo-ku ###################################
 # Steven Lam - 2020
-# inspired by Numberphile: https://youtu.be/G_UYXzGuqvM
+# inspired by Computerphile: https://youtu.be/G_UYXzGuqvM
 
 import numpy as np
 import time
@@ -63,4 +64,4 @@ def solve():
 
 solve()
 print("Solved in %s seconds" % (time.time() - start_time))
-# %%
+#%%
