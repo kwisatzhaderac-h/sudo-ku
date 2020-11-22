@@ -4,7 +4,7 @@
 Pseudo-ku is a lockdown project I started to teach myself the basics of Python.
 It is very simple and straightforward to use. 
 
-Say we have the following puzzle I wish to be solved:
+Say we have the following puzzle to be solved:
 <p align="center">
   <img width="292" height="294" src="https://i.imgur.com/cIDW5bG.png">
 </p>
