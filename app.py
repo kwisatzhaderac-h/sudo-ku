@@ -4,24 +4,42 @@
 # inspired by Computerphile: https://youtu.be/G_UYXzGuqvM
 ################################################################################
 
+from flask import Flask, flash, redirect, render_template, request
 import numpy as np
 import time
 
-# Begin tracking program run time
-start_time = time.time()
 
-# Initialise puzzle
-sudoku = np.array([
-    [1,0,0,4,8,9,0,0,6],
-    [7,3,0,0,0,0,0,4,0],
-    [0,0,0,0,0,1,2,9,5],
-    [0,0,7,1,2,0,6,0,0],
-    [5,0,0,7,0,3,0,0,8],
-    [0,0,6,0,9,5,7,0,0],
-    [9,1,4,6,0,0,0,0,0],
-    [0,2,0,0,0,0,0,3,7],
-    [8,0,0,5,1,2,0,0,4]
-        ])
+# Configure application
+app = Flask(__name__)
+
+# Ensure templates are auto-reloaded
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+# Ensure responses aren't cached
+@app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+def main():
+    # Begin tracking program run time
+    start_time = time.time()
+
+    # Solve
+    solve()
+
+    print(f"Solved in {(time.time() - start_time):.5f} seconds")
+
 
 # Checker function
 def can_fit(x, y, val):
@@ -39,6 +57,7 @@ def can_fit(x, y, val):
             if sudoku[k][z] == val:
                 return False
     return True
+
 
 # Potential solutions
 def all_sols(x, y):
@@ -59,7 +78,18 @@ def solve():
                 return
     print(sudoku)
 
-# If app is run in the command line
+
 if __name__ == "__main__":
-    solve()
-    print("Solved in %s seconds" % (time.time() - start_time))
+    # Initialise puzzle
+    sudoku = np.array([
+        [0,0,0,2,6,0,7,0,1],
+        [6,8,0,0,7,0,0,9,0],
+        [1,9,0,0,0,4,5,0,0],
+        [8,2,0,1,0,0,0,4,0],
+        [0,0,4,6,0,2,9,0,0],
+        [0,5,0,0,0,3,0,2,8],
+        [0,0,9,3,0,0,0,7,4],
+        [0,4,0,0,5,0,0,3,6],
+        [7,0,3,0,1,8,0,0,0]
+            ])
+    main()
