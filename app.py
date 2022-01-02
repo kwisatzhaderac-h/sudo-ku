@@ -1,16 +1,17 @@
 #!/usr/bin/env python
-#%%############################## Pseudo-ku ###################################
+################################# Pseudo-ku ####################################
 # Steven Lam - 2020
 # inspired by Computerphile: https://youtu.be/G_UYXzGuqvM
+################################################################################
 
 import numpy as np
 import time
 
-start_time = time.time() # begin tracking program run time
+# Begin tracking program run time
+start_time = time.time()
 
-############################ puzzle to be solved ##############################
-
-sudoku = np.array([  
+# Initialise puzzle
+sudoku = np.array([
     [1,0,0,4,8,9,0,0,6],
     [7,3,0,0,0,0,0,4,0],
     [0,0,0,0,0,1,2,9,5],
@@ -19,14 +20,13 @@ sudoku = np.array([
     [0,0,6,0,9,5,7,0,0],
     [9,1,4,6,0,0,0,0,0],
     [0,2,0,0,0,0,0,3,7],
-    [8,0,0,5,1,2,0,0,4] 
+    [8,0,0,5,1,2,0,0,4]
         ])
 
-################################# checker #####################################
-
+# Checker function
 def can_fit(x, y, val):
     global sudoku
-    row = x - (x % 3) 
+    row = x - (x % 3)
     col = y - (y % 3)
     for i in sudoku[x, :]:
         if i == val:
@@ -40,14 +40,13 @@ def can_fit(x, y, val):
                 return False
     return True
 
-############################## find solutions #################################
-
+# Potential solutions
 def all_sols(x, y):
     sols = [num for num in range(1, 10) if can_fit(x, y, num) == True]
-    return sols       
+    return sols
 
-################################## solver #####################################
 
+# Recursive solver
 def solve():
     global sudoku
     for x in range(0, 9):
@@ -60,8 +59,7 @@ def solve():
                 return
     print(sudoku)
 
-###############################################################################
-
-solve()
-print("Solved in %s seconds" % (time.time() - start_time))
-#%%
+# If app is run in the command line
+if __name__ == "__main__":
+    solve()
+    print("Solved in %s seconds" % (time.time() - start_time))
