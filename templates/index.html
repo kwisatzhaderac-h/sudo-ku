@@ -23,45 +23,49 @@
         <div class="container">
 
             <h3 class="text-center">Usage:</h3>
+            <!-- TODO Write better usage -->
             <p>
-
-            Below is a 9 x 9 grid of inputs that represents the Sudoku puzzle to be solved. Each input can have any number between 0 - 9.
-
-            For numbers you wish to solve, leave them as 0. Otherwise, fill in the grid with all the known numbers in the puzzle.
-
+                Below is a 9 x 9 grid of inputs that represents the Sudoku puzzle to be solved. Each input can have any number between 0 - 9.
+            </p>
+            <p>
+                Simply fill out the grid with all known numbers, leaving the unknown ones as 0. Once done, click Solve! for the solution!
             </p>
         </div>
 
-        <!-- TODO Use a table to display Sudoku grid -->
-        <br>
-        <div class="container-lg align-items-center">
-
-            <!-- Setup Sudoku puzzle to solve -->
-            <form action="/solve" method="post" class="form-control">
-                {% for i in range(1, 10) %}
-
-                <div class="row align-items-center g-2">
-                    {% for j in range (1, 10) %}
-
-                    <div class="col-sm">
-                        <select class="form-control" name="grid_{{ i }}{{ j }}">
-                            {% for k in range (0, 10) %}
-
-                                <option>{{ k }}</option>
-
+        <!-- Use a table to display Sudoku grid -->
+        <div class="container-lg align-items-center" style="height:0;width:20%;padding-bottom:20%;">
+            <form action="/" method="post" class="form-control">
+                <table>
+                    {% for i in range(0, 9) %}
+                        <tr>
+                            {% for j in range(0, 9) %}
+                            <td>
+                                <select class="form-control" name="grid_{{ i }}{{ j }}">
+                                    {% for k in range (0, 10) %}
+                                        <option>{{ k }}</option>
+                                     {% endfor %}
+                                </select>
+                            </td>
                             {% endfor %}
-                        </select>
-                    </div>
-
+                        </tr>
                     {% endfor %}
-                </div>
-                {% endfor %}
-                <br>
+                </table>
 
-                <!-- Solve! -->
-                <button class="btn-lg btn-primary align-center" type="submit">Solve!</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <!-- Solve! -->
+                            <button class="btn-lg btn-primary" type="submit">Solve!</button>
+                        </div>
+                        <div class="col text-center">
+                            <!-- Reset! -->
+                            <input class="btn-lg btn-secondary" type="reset" value="Reset!">
+                        </div>
+                    </div>
+                </div>
+
             </form>
         </div>
-    </div>
+        <br>
 
 {% endblock %}
