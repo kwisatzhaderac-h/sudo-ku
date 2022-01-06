@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 ################################# Pseudo-ku ####################################
-# Steven Lam - 2020
+# Steven Lam - 2021
 # inspired by Computerphile: https://youtu.be/G_UYXzGuqvM
 ################################################################################
 
-from types import SimpleNamespace
-from flask import Flask, redirect, render_template, request
+from flask import Flask, render_template, request
 import numpy as np
 import time
 
