@@ -4,7 +4,7 @@
 # inspired by Computerphile: https://youtu.be/G_UYXzGuqvM
 ################################################################################
 
-from flask import Flask, flash, redirect, render_template, request
+from flask import Flask, redirect, render_template, request
 import numpy as np
 import time
 
@@ -23,9 +23,38 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    if request.method == "GET":
+        return render_template("index.html")
+
+    # create a dict with each number in the Sudoku grid
+    nums = {}
+    for i in range(0, 9):
+        for j in range(0, 9):
+            key = f"{i}{j}"
+            nums[key] = int(request.values.get(f"grid_{i}{j}"))
+
+    global sudoku
+    sudoku = np.array([
+        [nums["00"], nums["01"], nums["02"], nums["03"], nums["04"], nums["05"], nums["06"], nums["07"], nums["08"]],
+        [nums["10"], nums["11"], nums["12"], nums["13"], nums["14"], nums["15"], nums["16"], nums["17"], nums["18"]],
+        [nums["20"], nums["21"], nums["22"], nums["23"], nums["24"], nums["25"], nums["26"], nums["27"], nums["28"]],
+        [nums["30"], nums["31"], nums["32"], nums["33"], nums["34"], nums["35"], nums["36"], nums["37"], nums["38"]],
+        [nums["40"], nums["41"], nums["42"], nums["43"], nums["44"], nums["45"], nums["46"], nums["47"], nums["48"]],
+        [nums["50"], nums["51"], nums["52"], nums["53"], nums["54"], nums["55"], nums["56"], nums["57"], nums["58"]],
+        [nums["60"], nums["61"], nums["62"], nums["63"], nums["64"], nums["65"], nums["66"], nums["67"], nums["68"]],
+        [nums["70"], nums["71"], nums["72"], nums["73"], nums["74"], nums["75"], nums["76"], nums["77"], nums["78"]],
+        [nums["80"], nums["81"], nums["82"], nums["83"], nums["84"], nums["85"], nums["86"], nums["87"], nums["88"]]
+    ])
+
+    # TODO check that input sudoku grid is valid
+
+    # Solve the puzzle
+    solve()
+
+    return render_template("result.html")
+
 
 @app.route("/about")
 def about():
@@ -91,5 +120,5 @@ if __name__ == "__main__":
         [0,0,9,3,0,0,0,7,4],
         [0,4,0,0,5,0,0,3,6],
         [7,0,3,0,1,8,0,0,0]
-            ])
+        ])
     main()
