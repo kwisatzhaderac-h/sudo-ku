@@ -57,3 +57,8 @@ The application can be run in the command line or through the web application.
 ### Web Application
 
 `flask run`
+
+### Resources
+
+* [Medium.com](https://levelup.gitconnected.com/sudoku-solver-python-using-backtracking-1aff17a3340)
+* [Computerphile](https://youtu.be/G_UYXzGuqvM)
