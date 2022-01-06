@@ -4,6 +4,7 @@
 # inspired by Computerphile: https://youtu.be/G_UYXzGuqvM
 ################################################################################
 
+from types import SimpleNamespace
 from flask import Flask, redirect, render_template, request
 import numpy as np
 import time
@@ -49,8 +50,6 @@ def index():
         [nums["70"], nums["71"], nums["72"], nums["73"], nums["74"], nums["75"], nums["76"], nums["77"], nums["78"]],
         [nums["80"], nums["81"], nums["82"], nums["83"], nums["84"], nums["85"], nums["86"], nums["87"], nums["88"]]
     ])
-
-    # TODO check that input sudoku grid is valid
 
     # Solve the puzzle
     solve(sudoku)
@@ -145,11 +144,6 @@ def index():
                             sol_87 = solns["sol_87"],
                             sol_88 = solns["sol_88"]
                         )
-
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
 
 def main():
