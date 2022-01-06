@@ -8,7 +8,7 @@
             <!-- Masthead Avatar Image -->
             <img class="masthead-avatar mb-5" src="static/favicon.ico" alt="..." />
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">About</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">A simple Sudoku solver</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
             </div>
@@ -17,13 +17,118 @@
         </div>
     </header>
 
-    <br>
-    <div class="container">
+    <div class="section">
 
-        <h3 class="text-center">Result:</h3>
-        <!-- TODO Print out the result -->
+        <br>
+        <div class="container">
 
-    </div>
+            <h3 class="text-center">Solution:</h3>
+        </div>
 
+        <!-- Use a table to display Sudoku grid -->
+        <div class="container-lg align-items-center" style="height:0;width:20%;padding-bottom:20%;">
+                <table>
+                    <tr>
+                        <td>{{ sol_00 }}</td>
+                        <td>{{ sol_01 }}</td>
+                        <td>{{ sol_02 }}</td>
+                        <td>{{ sol_03 }}</td>
+                        <td>{{ sol_04 }}</td>
+                        <td>{{ sol_05 }}</td>
+                        <td>{{ sol_06 }}</td>
+                        <td>{{ sol_07 }}</td>
+                        <td>{{ sol_08 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_10 }}</td>
+                        <td>{{ sol_11 }}</td>
+                        <td>{{ sol_12 }}</td>
+                        <td>{{ sol_13 }}</td>
+                        <td>{{ sol_14 }}</td>
+                        <td>{{ sol_15 }}</td>
+                        <td>{{ sol_16 }}</td>
+                        <td>{{ sol_17 }}</td>
+                        <td>{{ sol_18 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_20 }}</td>
+                        <td>{{ sol_21 }}</td>
+                        <td>{{ sol_22 }}</td>
+                        <td>{{ sol_23 }}</td>
+                        <td>{{ sol_24 }}</td>
+                        <td>{{ sol_25 }}</td>
+                        <td>{{ sol_26 }}</td>
+                        <td>{{ sol_27 }}</td>
+                        <td>{{ sol_28 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_30 }}</td>
+                        <td>{{ sol_31 }}</td>
+                        <td>{{ sol_32 }}</td>
+                        <td>{{ sol_33 }}</td>
+                        <td>{{ sol_34 }}</td>
+                        <td>{{ sol_35 }}</td>
+                        <td>{{ sol_36 }}</td>
+                        <td>{{ sol_37 }}</td>
+                        <td>{{ sol_38 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_40 }}</td>
+                        <td>{{ sol_41 }}</td>
+                        <td>{{ sol_42 }}</td>
+                        <td>{{ sol_43 }}</td>
+                        <td>{{ sol_44 }}</td>
+                        <td>{{ sol_45 }}</td>
+                        <td>{{ sol_46 }}</td>
+                        <td>{{ sol_47 }}</td>
+                        <td>{{ sol_48 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_50 }}</td>
+                        <td>{{ sol_51 }}</td>
+                        <td>{{ sol_52 }}</td>
+                        <td>{{ sol_53 }}</td>
+                        <td>{{ sol_54 }}</td>
+                        <td>{{ sol_55 }}</td>
+                        <td>{{ sol_56 }}</td>
+                        <td>{{ sol_57 }}</td>
+                        <td>{{ sol_58 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_60 }}</td>
+                        <td>{{ sol_61 }}</td>
+                        <td>{{ sol_62 }}</td>
+                        <td>{{ sol_63 }}</td>
+                        <td>{{ sol_64 }}</td>
+                        <td>{{ sol_65 }}</td>
+                        <td>{{ sol_66 }}</td>
+                        <td>{{ sol_67 }}</td>
+                        <td>{{ sol_68 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_70 }}</td>
+                        <td>{{ sol_71 }}</td>
+                        <td>{{ sol_72 }}</td>
+                        <td>{{ sol_73 }}</td>
+                        <td>{{ sol_74 }}</td>
+                        <td>{{ sol_75 }}</td>
+                        <td>{{ sol_76 }}</td>
+                        <td>{{ sol_77 }}</td>
+                        <td>{{ sol_78 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sol_80 }}</td>
+                        <td>{{ sol_81 }}</td>
+                        <td>{{ sol_82 }}</td>
+                        <td>{{ sol_83 }}</td>
+                        <td>{{ sol_84 }}</td>
+                        <td>{{ sol_85 }}</td>
+                        <td>{{ sol_86 }}</td>
+                        <td>{{ sol_87 }}</td>
+                        <td>{{ sol_88 }}</td>
+                    </tr>
+                </table>
+        </div>
+        <br>
 
 {% endblock %}
